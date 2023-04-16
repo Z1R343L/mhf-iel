@@ -88,7 +88,7 @@ class CharSelectionScreen:
             self.error_label.destroy()
 
         try:
-            resp = requests.post(f'{ENDPOINT}/character', json={'token': self.token})
+            resp = requests.post(f'{ENDPOINT}/character/create', json={'token': self.token})
             resp.raise_for_status()
         except requests.HTTPError as e:
             self.error_label = ttk.Label(self.frm, text=f"Unable to create character: {resp.status_code}")
